@@ -1,0 +1,16 @@
+<h2>Create</h2>
+
+<%= form_for @records do |myform| %>
+    <div>
+        <%= myform.label :name %> <br />
+        <%= myform.text_field :name %>
+    </div>
+
+    <div>
+        <%= myform.label :reason %> <br />
+        <%= myform.text_field :reason %>
+    </div>
+
+    <p><%= myform.submit %> </p>
+
+<% end %>

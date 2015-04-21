@@ -1,0 +1,27 @@
+<h2><%= @records.name %> </h2>
+<p><%= @records.reason %></p>
+
+<h3>Steps I Need to Take</h3>
+<ul>
+  <% @records.steps.incomplete.each do |single_step| %>
+    <li>
+      <%= single_step.description %> | <%= single_step.complete %>
+      <%= button_to "Complete", complete_list_step_path(@records.id, single_step.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Steps I Completed!</h3>
+<ul>
+  <% @records.steps.complete.each do |single_step| %>
+    <li><%= single_step.description %></li>
+  <% end %>
+</ul>
+
+<h2>Add Step</h2>
+<p>baby steps</p>
+
+<%= form_for [@records, @records.steps.new] do |form| %>
+<%= form.text_field :description%>
+<%= form.submit %>
+<% end %>
